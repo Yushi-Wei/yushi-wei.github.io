@@ -1,0 +1,72 @@
+name: Deploy academic website
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pages: read
+    steps:
+      - name: Check out website
+        uses: actions/checkout@v6
+        with:
+          ref: main
+      - name: Import prepared website source
+        if: ${{ hashFiles('website-source.zip') != '' }}
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path, PurePosixPath
+          import hashlib, zipfile
+          archive = Path('website-source.zip')
+          assert hashlib.sha256(archive.read_bytes()).hexdigest() == '86ac9e0aa2011a0b012ba6bb7e911bd4f16b1a581c146c46392f05d46eb85e51'
+          with zipfile.ZipFile(archive) as z:
+              assert len(z.infolist()) == 90
+              for item in z.infolist():
+                  p = PurePosixPath(item.filename)
+                  assert not p.is_absolute() and '..' not in p.parts
+                  if p.parts[0] == '.github':
+                      continue
+                  assert p.parts[0] == 'dist' or item.filename in ('README.md', '.gitignore')
+                  target = Path(item.filename)
+                  target.parent.mkdir(parents=True, exist_ok=True)
+                  target.write_bytes(z.read(item))
+          archive.unlink()
+          PY
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- dist README.md .gitignore website-source.zip
+          git commit -m 'Import complete website source for GitHub Pages'
+          git push origin HEAD:main
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+      - name: Upload static website
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist
+
+  deploy:
+    needs: upload
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Publish website
+        id: deployment
+        uses: actions/deploy-pages@v4
