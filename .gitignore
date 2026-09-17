@@ -1,0 +1,9 @@
+photos/
+tmp/
+node_modules/
+.env
+.env.*
+.openai/
+.sites-runtime/
+.DS_Store
+Thumbs.db

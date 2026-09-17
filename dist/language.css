@@ -1,0 +1,108 @@
+.header-tools{display:flex;align-items:center;gap:30px}
+.site-header nav a{white-space:nowrap}
+.language-switch{display:inline-flex;align-items:center;padding:3px;gap:2px;border:1px solid var(--line);border-radius:3px;flex-shrink:0}
+.language-switch[hidden]{display:none}
+.language-switch button{font:inherit;font-size:13px;line-height:1.5;min-height:38px;min-width:40px;padding:7px 11px;border:0;border-radius:1px;background:transparent;color:var(--muted);cursor:pointer;transition:background-color .2s,color .2s}
+.language-switch button[aria-pressed="true"]{background:var(--accent);color:#fff}
+.language-switch button[aria-pressed="false"]:hover{background:#e8edff;color:var(--accent)}
+.language-switch button:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+.name-latin{display:block;font-family:var(--sans);font-size:20px;font-weight:450;letter-spacing:.04em;line-height:1.4;margin-top:20px}
+@media(max-width:700px){.header-tools{width:100%;gap:18px;flex-wrap:wrap}.site-header .header-tools nav{flex:1;min-width:200px;width:auto}.language-switch{margin-left:auto}.language-switch button{min-height:40px}.name-latin{font-size:18px;margin-top:17px}}
+
+/* Chinese has its own reading rhythm and composition. All rules are language-scoped. */
+html[lang="zh-CN"]{--sans:'DM Sans','PingFang SC','Microsoft YaHei','Noto Sans CJK SC',sans-serif}
+html[lang="zh-CN"] body{font-family:var(--sans);line-break:strict}
+html[lang="zh-CN"] .zh-paragraph{display:block}
+html[lang="zh-CN"] .zh-paragraph+.zh-paragraph{margin-top:.8em}
+html[lang="zh-CN"] .profile-home h1{font-size:clamp(64px,6.5vw,92px);line-height:1.12;letter-spacing:.045em;white-space:normal;margin-bottom:24px}
+html[lang="zh-CN"] .name-latin{font-size:19px;letter-spacing:.07em;margin-top:16px}
+html[lang="zh-CN"] .profile-role{font-size:16px;line-height:1.7;letter-spacing:.025em;max-width:none}
+html[lang="zh-CN"] .profile-bio{font-size:17px;line-height:1.9;max-width:30em;letter-spacing:.015em}
+html[lang="zh-CN"] .profile-home .hero-copy{padding-block:44px}
+html[lang="zh-CN"] .faculty-notice{max-width:34em;padding:16px 20px}
+html[lang="zh-CN"] .faculty-notice strong{font-size:17px;font-weight:550;letter-spacing:.015em}
+html[lang="zh-CN"] .hero-bottom,html[lang="zh-CN"] .section-label,html[lang="zh-CN"] .topic-tags{letter-spacing:.03em}
+html[lang="zh-CN"] .hero-bottom span{max-width:none}
+html[lang="zh-CN"] .profile-actions{column-gap:30px;row-gap:14px}
+html[lang="zh-CN"] .profile-actions .text-link{gap:18px;font-weight:500}
+html[lang="zh-CN"] .art-explanation{letter-spacing:.14em;line-height:1.8}
+html[lang="zh-CN"] .art-caption-heading{letter-spacing:.035em}
+html[lang="zh-CN"] .news{grid-template-columns:180px minmax(0,1fr);gap:48px}
+html[lang="zh-CN"] .news-heading .section-label{display:none}
+html[lang="zh-CN"] .news-heading h2{font-size:32px;font-weight:500;line-height:1.5;letter-spacing:.02em}
+html[lang="zh-CN"] .news-item p{font-size:16px;line-height:1.9;max-width:40em}
+html[lang="zh-CN"] .page-title{font-size:clamp(42px,4.8vw,68px);line-height:1.35;letter-spacing:.015em;margin-bottom:30px}
+html[lang="zh-CN"] .page-title em{font-family:inherit;font-style:normal;letter-spacing:0}
+html[lang="zh-CN"] .zh-title-overline{display:block;font-size:.36em;line-height:1.6;letter-spacing:.045em;font-weight:450;color:var(--muted);margin-bottom:.45em}
+html[lang="zh-CN"] .zh-title-part{display:inline-block}
+html[lang="zh-CN"] .research-summary{font-size:17px;line-height:1.9;max-width:42em;margin-bottom:32px}
+html[lang="zh-CN"] .record-heading h2{font-size:22px;letter-spacing:.015em;line-height:1.5}
+html[lang="zh-CN"] .record-lead{font-size:17px;line-height:1.9;max-width:44em;margin-bottom:24px}
+html[lang="zh-CN"] .zh-record-detail{display:block;font-size:15px;margin-top:5px}
+html[lang="zh-CN"] .record-stats{grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;max-width:740px}
+html[lang="zh-CN"] .record-stats dt{font-size:15px;letter-spacing:.015em}
+html[lang="zh-CN"] .record-stats dd span{font-size:14px;line-height:1.7}
+html[lang="zh-CN"] .record-journal-route{max-width:920px}
+html[lang="zh-CN"] .record-journal-route h3{font-size:19px;letter-spacing:.015em}
+html[lang="zh-CN"] .record-journal-route p{line-height:1.85}
+html[lang="zh-CN"] .record-classifications,html[lang="zh-CN"] .record-note,html[lang="zh-CN"] .classification-note{line-height:1.85;max-width:56em}
+html[lang="zh-CN"] .theme-card{padding:24px}
+html[lang="zh-CN"] .theme-title{font-size:22px;line-height:1.5;letter-spacing:.02em}
+html[lang="zh-CN"] .theme-summary{font-size:16px;line-height:1.85;max-width:none;margin-bottom:22px}
+html[lang="zh-CN"] .theme-number{margin-bottom:18px}
+html[lang="zh-CN"] .theme-card .topic-tags{letter-spacing:.03em;margin-bottom:19px}
+html[lang="zh-CN"] .publication-intro{display:flex;align-items:center}
+html[lang="zh-CN"] .publication-intro .page-title{font-size:38px;margin-bottom:0;letter-spacing:.025em}
+html[lang="zh-CN"] .publication-intro>p{line-height:1.8;min-width:0;margin:0}
+html[lang="zh-CN"] .publication-type{letter-spacing:.04em}
+html[lang="zh-CN"] .page-academic .academic-panel,html[lang="zh-CN"] .page-academic .academic-service-grid>div{grid-template-columns:140px minmax(0,1fr);gap:44px}
+html[lang="zh-CN"] .page-academic .academic-section-title{font-size:21px;line-height:1.65;letter-spacing:.025em}
+html[lang="zh-CN"] .funding-title{line-height:1.65;max-width:32em;letter-spacing:0}
+html[lang="zh-CN"] .zh-project-subtitle{display:block;font-size:.83em;margin-top:.25em;color:var(--muted)}
+html[lang="zh-CN"] .funding-details dt{letter-spacing:.025em}
+html[lang="zh-CN"] .academic-service-grid .timeline h4{font-size:17px;font-weight:550;line-height:1.7}
+html[lang="zh-CN"] .academic-service-grid .service-block p{line-height:1.9;max-width:40em}
+html[lang="zh-CN"] .academic-service-grid .service-block .date{font-size:13px;letter-spacing:.035em}
+@media(max-width:1100px){html[lang="zh-CN"] .profile-home .hero-composition{grid-template-columns:56% 44%}html[lang="zh-CN"] .profile-bio{font-size:16px}html[lang="zh-CN"] .news{grid-template-columns:145px minmax(0,1fr);gap:32px}}
+@media(max-width:900px){html[lang="zh-CN"] .page-academic .academic-panel,html[lang="zh-CN"] .page-academic .academic-service-grid>div{grid-template-columns:1fr;gap:20px}html[lang="zh-CN"] .page-academic .academic-section-title{font-size:22px}html[lang="zh-CN"] .theme-card{padding:21px 18px}}
+@media(max-width:700px){
+  html[lang="zh-CN"] .header-tools{gap:12px;flex-wrap:nowrap}
+  html[lang="zh-CN"] .site-header .header-tools nav{min-width:0;gap:12px}
+  html[lang="zh-CN"] .language-switch button{padding-inline:9px;min-width:38px}
+  html[lang="zh-CN"] .profile-home h1{font-size:clamp(58px,16vw,76px);margin-bottom:20px}
+  html[lang="zh-CN"] .name-latin{font-size:18px;margin-top:13px}
+  html[lang="zh-CN"] .profile-home .hero-copy{padding:32px 0 24px}
+  html[lang="zh-CN"] .profile-role{font-size:15px;margin-bottom:18px}
+  html[lang="zh-CN"] .profile-bio{font-size:16px;line-height:1.9}
+  html[lang="zh-CN"] .faculty-notice{padding:15px 16px;gap:10px 14px}
+  html[lang="zh-CN"] .faculty-notice strong{font-size:16px}
+  html[lang="zh-CN"] .profile-actions{gap:14px 28px;margin-top:23px}
+  html[lang="zh-CN"] .hero-bottom{gap:12px;font-size:12px;letter-spacing:0;flex-wrap:wrap}
+  html[lang="zh-CN"] .news{grid-template-columns:1fr;gap:24px;padding-block:38px 48px}
+  html[lang="zh-CN"] .news-heading h2{font-size:28px}
+  html[lang="zh-CN"] .news-item{gap:7px}
+  html[lang="zh-CN"] .page-title,html[lang="zh-CN"] .research .page-title,html[lang="zh-CN"] .page-academic .page-title{font-size:clamp(34px,8.8vw,44px);margin-bottom:26px;line-height:1.4}
+  html[lang="zh-CN"] .zh-title-overline{font-size:17px;margin-bottom:8px}
+  html[lang="zh-CN"] .research-summary{font-size:16px;line-height:1.9}
+  html[lang="zh-CN"] .record-lead{font-size:16px}
+  html[lang="zh-CN"] .record-stats{gap:12px}
+  html[lang="zh-CN"] .record-stats>div{padding:0 0 0 12px;border-top:0;border-left:1px solid var(--line)}
+  html[lang="zh-CN"] .record-stats>div:first-child{padding-left:0;border-left:0}
+  html[lang="zh-CN"] .record-stats dt{font-size:14px}
+  html[lang="zh-CN"] .record-stats dd{display:block}
+  html[lang="zh-CN"] .record-stats dd strong{font-size:42px;margin-bottom:7px}
+  html[lang="zh-CN"] .record-stats dd span{font-size:13px}
+  html[lang="zh-CN"] .record-venues strong{display:inline-block;margin:0 8px 0 0}
+  html[lang="zh-CN"] .record-venues p{margin-bottom:8px}
+  html[lang="zh-CN"] .record-journal-route h3{font-size:18px}
+  html[lang="zh-CN"] .theme-card{padding:22px}
+  html[lang="zh-CN"] .theme-title{font-size:22px}
+  html[lang="zh-CN"] .publication-intro{align-items:flex-start;flex-direction:column;gap:14px}
+  html[lang="zh-CN"] .publication-intro .page-title{font-size:32px;margin:0}
+  html[lang="zh-CN"] .publication-toolbar{gap:12px}
+  html[lang="zh-CN"] .funding-title{line-height:1.65}
+  html[lang="zh-CN"] .funding-details>div{grid-template-columns:4.5em minmax(0,1fr);gap:10px}
+  html[lang="zh-CN"] .academic-service-grid .timeline h4{font-size:16px}
+}
+/* Four page links retain a full navigation row on small screens. */
+@media(max-width:700px){.site-header{display:grid;grid-template-columns:1fr auto;gap:22px 16px}.site-header>.wordmark{grid-column:1;grid-row:1;justify-self:start}.site-header .header-tools,html[lang="zh-CN"] .site-header .header-tools{display:contents}.site-header .header-tools nav,html[lang="zh-CN"] .site-header .header-tools nav{grid-column:1/-1;grid-row:2;width:100%;min-width:0;justify-content:space-between;gap:10px;font-size:14px}.site-header .language-switch{grid-column:2;grid-row:1;margin:0}}

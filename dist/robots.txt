@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://yushi-wei.github.io/sitemap.xml

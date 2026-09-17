@@ -1,0 +1,101 @@
+/* Quiet movement, with the original artwork and typography doing the visual work. */
+/* Native page navigation keeps links, history, scroll restoration, and fallback
+   navigation intact. Only the content moves; the shared header stays steady. */
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition { navigation: auto; }
+  .site-header { view-transition-name: site-header; }
+  #main { view-transition-name: page-content; }
+  ::view-transition { pointer-events: none; }
+  ::view-transition-group(*) {
+    animation-duration: 420ms;
+    animation-timing-function: cubic-bezier(.2,.7,.2,1);
+  }
+  ::view-transition-group(site-header),
+  ::view-transition-group(page-content) { animation: none; }
+  ::view-transition-old(site-header) { display: none; }
+  ::view-transition-new(site-header) { animation: none; }
+  ::view-transition-old(root) { animation: page-fade-out 180ms ease-out both; }
+  ::view-transition-new(root) { animation: page-fade-in 420ms cubic-bezier(.2,.7,.2,1) both; }
+  ::view-transition-old(page-content),
+  ::view-transition-new(page-content) {
+    height: 100%;
+    object-fit: none;
+    object-position: top left;
+    mix-blend-mode: normal;
+  }
+  ::view-transition-old(page-content) { animation: page-depart 180ms ease-out both; }
+  ::view-transition-new(page-content) { animation: page-arrive 420ms cubic-bezier(.2,.7,.2,1) both; }
+}
+@keyframes page-fade-out { to { opacity: 0; } }
+@keyframes page-fade-in { from { opacity: 0; } }
+@keyframes page-depart { to { opacity: 0; transform: translateY(-8px); } }
+@keyframes page-arrive { from { opacity: 0; transform: translateY(14px); } }
+
+.profile-home .hero-visual { transform: none; transition: none; will-change: auto; }
+.profile-home .hero-visual img {
+  translate: var(--move-x,0px) var(--move-y,0px);
+  transition: translate .65s cubic-bezier(.2,.7,.3,1);
+}
+.hero-visual.art-animated img {
+  animation: spatial-drift 12s ease-in-out infinite;
+  transform-origin: 50% 48%;
+}
+.hero-visual.art-paused img { animation-play-state: paused; }
+.profile-home .hero-visual figcaption { display: block; padding-top: 8px; line-height: 1.6; }
+.art-caption-heading { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px 18px; margin-top: 18px; padding-top: 10px; border-top: 1px solid var(--line); font-size: 12px; letter-spacing: .065em; }
+.art-explanation { max-width: 26ch; margin: 0; font-family: var(--serif); font-size: clamp(24px,2.15vw,30px); font-weight: 400; font-style: italic; line-height: 1.32; letter-spacing: -.015em; text-transform: none; color: var(--ink); }
+.art-explanation > span { display: block; }
+html[lang="zh-CN"] .art-explanation { font-family: 'Songti SC','STSong','SimSun',serif; font-size: clamp(21px,1.7vw,24px); font-style: normal; line-height: 1.7; letter-spacing: .08em; }
+
+.site-header nav a { position: relative; }
+.site-header nav a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -9px;
+  height: 2px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .4s cubic-bezier(.2,.7,.2,1);
+}
+.site-header nav a[aria-current='page']::after { transform: scaleX(1); animation: line-arrive .62s cubic-bezier(.2,.7,.2,1) both; }
+.site-header nav a:hover::after, .site-header nav a:focus-visible::after { transform: scaleX(1); }
+
+.text-link > span, .profile-email > span, .faculty-notice a > span,
+.research-quicklinks a > span, .paper-arrow, footer a[href^='mailto:'] > span,
+.academic-service-grid a > span[aria-hidden='true'] {
+  display: inline-block;
+  transition: transform .35s cubic-bezier(.2,.7,.2,1);
+}
+.text-link:hover > span, .text-link:focus-visible > span,
+.profile-email:hover > span, .profile-email:focus-visible > span,
+.faculty-notice a:hover > span, .faculty-notice a:focus-visible > span,
+.publication-title a:hover .paper-arrow, .publication-title a:focus-visible .paper-arrow,
+footer a[href^='mailto:']:hover > span, footer a[href^='mailto:']:focus-visible > span,
+.academic-service-grid a:hover > span[aria-hidden='true'], .academic-service-grid a:focus-visible > span[aria-hidden='true'] { transform: translate(3px,-3px); }
+.research-quicklinks a:hover > span, .research-quicklinks a:focus-visible > span { transform: translateY(4px); }
+.filter-check { transition: background-color .25s, border-color .25s, color .25s; }
+.author-filter { transition: background-color .25s, color .25s, box-shadow .25s; }
+.author-filter:focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; }
+
+@keyframes spatial-drift {
+  0%,100% { transform: translateY(0) rotate(0deg); }
+  35% { transform: translateY(-11px) rotate(.65deg); }
+  70% { transform: translateY(-5px) rotate(-.4deg); }
+}
+@keyframes line-arrive { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
+@media (max-width:700px) {
+  .art-caption-heading { margin-top: 15px; padding-top: 7px; }
+  .art-explanation { font-size: 27px; }
+  html[lang="zh-CN"] .art-explanation { font-size: 22px; }
+}
+@media (prefers-reduced-motion:reduce) {
+  .profile-home .hero-visual img { translate: none; transition: none; }
+  .hero-visual.art-animated img { animation: none; transform: none; }
+  .site-header nav a::after { transform: scaleX(0) !important; }
+  .site-header nav a[aria-current='page']::after,
+  .site-header nav a:hover::after, .site-header nav a:focus-visible::after { transform: scaleX(1) !important; }
+}
