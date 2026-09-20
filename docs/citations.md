@@ -2,7 +2,7 @@
 
 The production website is https://yushi-wei.github.io/ and the public source repository is https://github.com/Yushi-Wei/yushi-wei.github.io.
 
-The Research page reads `dist/data/citations.json`. The total beside **Publications.** is the Google Scholar profile's total, not the sum of the visible or filtered papers. Individual papers show their own verified counts. Both English and Chinese display the date of the last successful observation. Missing data is omitted, while a verified zero remains visible.
+The Research page reads `dist/data/citations.json`. The total beside **Publications.** is the Google Scholar profile's total, not the sum of the visible or filtered papers. Individual papers show their verified counts as plain text in a fixed slot in the top metadata row. Per-paper counts have no links or arrows; the profile link remains beside the section heading. Both English and Chinese display the date of the last successful observation. Missing data is omitted, while a verified zero remains visible.
 
 ## One-time setup
 

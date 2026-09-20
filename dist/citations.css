@@ -51,23 +51,23 @@
   font-variant-numeric: tabular-nums;
 }
 .publication-citations {
-  margin: 12px 0 0;
-  font-size: 13px;
-  line-height: 1.6;
-}
-.publication-citation-link {
   display: inline-flex;
   align-items: baseline;
-  gap: 8px;
-  min-height: 28px;
-  padding: 2px 0;
-  color: var(--accent);
-  text-decoration: none;
-  border-bottom: 1px solid #c7d3f1;
+  gap: 5px;
+  flex-shrink: 0;
+  margin: 0;
+  padding: 3px 0;
+  white-space: nowrap;
+  color: #63718b;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.5;
   font-variant-numeric: tabular-nums;
 }
-.publication-citation-link:hover { border-color: var(--accent); }
-.publication-citation-link:focus-visible,
+.publication-citation-value {
+  color: #364e7d;
+  font-weight: 550;
+}
 .scholar-source:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 5px;
@@ -82,4 +82,5 @@
   }
   .scholar-summary.has-data { padding-left: 16px; }
   .scholar-total strong { font-size: 24px; }
+  .publication-citations { font-size: 12px; margin-top: 1px; }
 }

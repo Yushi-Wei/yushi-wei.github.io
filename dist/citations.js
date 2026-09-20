@@ -57,37 +57,21 @@
       const id = publication.dataset.publicationId;
       const paper = Object.hasOwn(snapshot.papers, id) ? snapshot.papers[id] : null;
       const date = paper && readDate(paper.updated_at);
-      const href = paper && scholarUrl(paper.scholar_url);
-      let row = publication.querySelector('.publication-citations');
-      if (!paper || !isCount(paper.citations) || !date || !href ||
+      const sourceUrl = paper && scholarUrl(paper.scholar_url);
+      const row = publication.querySelector('.publication-citations');
+      if (!row) return;
+      if (!paper || !isCount(paper.citations) || !date || !sourceUrl ||
           typeof paper.scholar_id !== 'string' || !paper.scholar_id.trim()) {
         if (row) row.hidden = true;
         return;
       }
-      if (!row) {
-        row = document.createElement('p');
-        row.className = 'publication-citations';
-        const link = document.createElement('a');
-        link.className = 'publication-citation-link';
-        link.target = '_blank';
-        link.rel = 'noopener noreferrer';
-        const label = document.createElement('span');
-        label.className = 'publication-citation-label';
-        const arrow = document.createElement('span');
-        arrow.textContent = '↗';
-        arrow.setAttribute('aria-hidden', 'true');
-        link.append(label, arrow);
-        row.append(link);
-        (publication.querySelector(':scope > div') || publication).append(row);
-      }
       const count = number.format(paper.citations);
       const label = chinese ? `${count} 次引用` : `${count} ${paper.citations === 1 ? 'citation' : 'citations'}`;
-      const link = row.querySelector('a');
       row.hidden = false;
-      link.href = href;
-      link.querySelector('.publication-citation-label').textContent = label;
-      link.title = `Google Scholar · ${dateText(date)}`;
-      link.setAttribute('aria-label', `${label} · Google Scholar · ${dateText(date)}`);
+      row.querySelector('.publication-citation-value').textContent = count;
+      row.querySelector('.publication-citation-unit').textContent = chinese ? '次引用' : paper.citations === 1 ? 'citation' : 'citations';
+      row.title = `Google Scholar · ${dateText(date)}`;
+      row.setAttribute('aria-label', `${label} · Google Scholar · ${dateText(date)}`);
     });
   }
 
