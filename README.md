@@ -44,3 +44,7 @@ Edit the HTML and the corresponding Chinese entries in `dist/language.js`. Updat
 Links and asset paths use the domain root. Canonical URLs, Open Graph metadata, homepage structured data, robots.txt, and sitemap.xml target `https://yushi-wei.github.io`. Update these together if the primary domain changes. Search Console and Baidu verification must use values issued by the website owner's accounts.
 
 The export contains optimized photographs and generated or edited decorative artwork. Original photographs, credentials, temporary files, deployment identifiers, and earlier edit history are excluded.
+
+## Daily citation statistics
+
+Research displays Google Scholar citation counts from a verified daily snapshot. See [setup and maintenance](docs/citations.md). Configure `SERPAPI_API_KEY` in repository Actions secrets, then run **Deploy academic website** once. Daily refresh is scheduled for 08:23 China time.

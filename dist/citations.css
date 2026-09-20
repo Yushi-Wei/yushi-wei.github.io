@@ -1,0 +1,85 @@
+/* Citation details follow the bibliography's restrained blue accents. */
+.page-research .publication-intro {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 24px 36px;
+}
+.scholar-summary {
+  flex: 0 0 auto;
+  min-width: 0;
+  max-width: 100%;
+  color: var(--accent);
+}
+.scholar-summary.has-data {
+  padding-left: 20px;
+  border-left: 1px solid #c7d3f1;
+}
+.scholar-source {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 28px;
+  font-size: 13px;
+  font-weight: 550;
+  line-height: 1.5;
+  text-decoration: none;
+}
+.scholar-source:hover { text-decoration: underline; text-underline-offset: 4px; }
+.scholar-total {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 2px 0 3px;
+  font-size: 13px;
+  line-height: 1.5;
+}
+.scholar-total strong {
+  font-size: 26px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -.025em;
+  font-variant-numeric: tabular-nums;
+}
+.scholar-updated {
+  display: block;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.6;
+  font-variant-numeric: tabular-nums;
+}
+.publication-citations {
+  margin: 12px 0 0;
+  font-size: 13px;
+  line-height: 1.6;
+}
+.publication-citation-link {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+  min-height: 28px;
+  padding: 2px 0;
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid #c7d3f1;
+  font-variant-numeric: tabular-nums;
+}
+.publication-citation-link:hover { border-color: var(--accent); }
+.publication-citation-link:focus-visible,
+.scholar-source:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 5px;
+}
+.scholar-total[hidden], .scholar-updated[hidden],
+.publication-citations[hidden] { display: none; }
+@media (max-width: 700px) {
+  .page-research .publication-intro {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .scholar-summary.has-data { padding-left: 16px; }
+  .scholar-total strong { font-size: 24px; }
+}

@@ -3,6 +3,9 @@ name: Deploy academic website
 on:
   push:
     branches: [main]
+  schedule:
+    # Daily at 08:23 China Standard Time (UTC+8).
+    - cron: '23 0 * * *'
   workflow_dispatch:
 
 permissions:
@@ -16,9 +19,48 @@ concurrency:
 jobs:
   upload:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pages: read
     steps:
       - name: Check out website
         uses: actions/checkout@v6
+        with:
+          ref: main
+      - name: Verify citation updater
+        run: python3 -m unittest discover -s tests -p 'test_*.py'
+      - name: Refresh Google Scholar citations
+        id: citations
+        env:
+          SERPAPI_API_KEY: ${{ secrets.SERPAPI_API_KEY }}
+          RUN_EVENT: ${{ github.event_name }}
+        shell: bash
+        run: |
+          if [ -z "$SERPAPI_API_KEY" ] && [ "$RUN_EVENT" = push ]; then
+            echo '::notice::Add the SERPAPI_API_KEY repository secret to enable citation updates.'
+            echo 'Citation sync awaits SERPAPI_API_KEY. The website remains available.' >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          if ! python3 scripts/update_citations.py; then
+            if [ "$RUN_EVENT" = push ]; then
+              echo '::warning::Citation refresh failed; deploying the website with the previous verified snapshot.'
+              echo 'Citation refresh failed. The previous verified snapshot is retained for this website update.' >> "$GITHUB_STEP_SUMMARY"
+              exit 0
+            fi
+            exit 1
+          fi
+          echo 'refreshed=true' >> "$GITHUB_OUTPUT"
+      - name: Save the verified citation snapshot
+        if: steps.citations.outputs.refreshed == 'true'
+        shell: bash
+        run: |
+          git add -- dist/data/citations.json
+          if ! git diff --cached --quiet; then
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git commit -m 'Update Google Scholar citations'
+            git push origin HEAD:main
+          fi
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
       - name: Upload static website
