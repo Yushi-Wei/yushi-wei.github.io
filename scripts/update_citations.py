@@ -375,6 +375,12 @@ def main(argv=None):
             if paper["id"] not in snapshot["papers"]:
                 title = " ".join(paper["title"].split())[:240]
                 print(f"Unmatched publication: {paper['id']} - {title}")
+        if len(snapshot["papers"]) < len(papers):
+            mapped_ids = {paper["scholar_id"] for paper in snapshot["papers"].values()}
+            for record in records:
+                if record["scholar_id"] not in mapped_ids:
+                    diagnostic = {key: record[key] for key in ("scholar_id", "title", "citations")}
+                    print("Unmapped Scholar record: " + json.dumps(diagnostic, ensure_ascii=True, allow_nan=False))
         return 0
     except UpdateError as error:
         print(f"Citation update failed: {error}", file=sys.stderr)
