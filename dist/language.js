@@ -107,7 +107,7 @@
     text('.paper-award', '最佳论文奖荣誉提名（Honorable Mention）');
     document.querySelectorAll('.publication-status').forEach(element => {
       const original = element.textContent;
-      const translated = original === 'To appear' ? '已接收，待刊' : original.replace('Online first ', '在线首发于 ');
+      const translated = original === 'To appear' ? '已接收，待刊' : original;
       originals.push({element, chinese: translated, english: original});
     });
   }
