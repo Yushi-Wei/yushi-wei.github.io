@@ -5,161 +5,165 @@
       "id": "paper-63a6880e34f0",
       "title": "Optimal Raycast Selection Feedback in VR for Older Adults: A Design and Analysis Study",
       "doi": "10.1109/TVCG.2026.3683105",
-      "scholar_id": null,
+      "scholar_id": "DXJTi30AAAAJ:isC4tDSrTZIC",
       "aliases": []
     },
     {
       "id": "paper-05d652fa8b19",
       "title": "Reorienting with the Bare Hand: Gesture-Based Techniques for Orientation-Enabled Teleportation in Virtual Reality",
       "doi": "10.1109/TVCG.2026.3679138",
-      "scholar_id": null,
+      "scholar_id": "DXJTi30AAAAJ:j3f4tGmQtD8C",
       "aliases": []
     },
     {
       "id": "paper-161910bd03be",
       "title": "RayFlex: Inducing Weight Perception through Raycast Pseudo-Haptics in Virtual Reality",
       "doi": "10.1109/TVCG.2026.3679883",
-      "scholar_id": null,
+      "scholar_id": "DXJTi30AAAAJ:TFP_iSt0sucC",
       "aliases": []
     },
     {
       "id": "paper-201d0a3aca93",
       "title": "D-Model: Understanding the Effect of Expected Delays in Moving Target Selection in VR",
       "doi": "10.1080/10447318.2026.2623221",
-      "scholar_id": null,
+      "scholar_id": "DXJTi30AAAAJ:4JMBOYKVnBMC",
       "aliases": []
     },
     {
       "id": "paper-47208a1de209",
       "title": "AdaptiController: VR-Enhanced Fine Motor Assistance Through Finger Pressure Modulation",
       "doi": "10.1109/TVCG.2026.3679909",
-      "scholar_id": null,
+      "scholar_id": "DXJTi30AAAAJ:iH-uZ7U-co4C",
       "aliases": []
     },
     {
       "id": "paper-4dc560fa1bed",
       "title": "IntentGaze: Task-Aligned Gaze Correction for Stable and Responsive Gaze Interaction in XR",
       "doi": null,
-      "scholar_id": null,
+      "scholar_id": "DXJTi30AAAAJ:M3NEmzRMIkIC",
       "aliases": []
     },
     {
       "id": "paper-9ea7ce5e0428",
       "title": "Effects of Spatial Constraint on Bare-Hand Logographic Character Handwriting Performance in Virtual Reality",
       "doi": null,
-      "scholar_id": null,
+      "scholar_id": "DXJTi30AAAAJ:maZDTaKrznsC",
       "aliases": []
     },
     {
       "id": "paper-1e6047e1c716",
       "title": "Understanding the Effect of Latency on User Performance of Target Selection in Virtual Reality",
       "doi": "10.1109/TVCG.2025.3634367",
-      "scholar_id": null,
+      "scholar_id": "DXJTi30AAAAJ:RHpTSmoSYBkC",
       "aliases": []
     },
     {
       "id": "paper-6b0a9ea60e30",
       "title": "Reevaluating the Gaze Cursor in Virtual Reality: A Comparative Analysis of Cursor Visibility, Confirmation Mechanisms, and Task Paradigms",
       "doi": "10.1109/TVCG.2025.3622042",
-      "scholar_id": null,
+      "scholar_id": "DXJTi30AAAAJ:TQgYirikUcIC",
       "aliases": []
     },
     {
       "id": "paper-d46da96048fb",
       "title": "Exploring and Modeling the Effects of Eye-Tracking Accuracy and Precision on Gaze-Based Steering in Virtual Environments",
       "doi": "10.1109/TVCG.2025.3616824",
-      "scholar_id": null,
-      "aliases": []
+      "scholar_id": "DXJTi30AAAAJ:HDshCWvjkbEC",
+      "aliases": [
+        "Exploring and Modeling the Effects of Eye-Tracking Accuracy and Precision on Gaze-Based Steering in Virtual Environments 🏆"
+      ]
     },
     {
       "id": "paper-d8366f0bfdd6",
       "title": "Predicting Ray Pointer Landing Poses in VR Using Multimodal LSTM-Based Neural Networks",
       "doi": "10.1109/VR59515.2025.00034",
-      "scholar_id": null,
+      "scholar_id": "DXJTi30AAAAJ:7PzlFSSx8tAC",
       "aliases": []
     },
     {
       "id": "paper-0adc9a2ea726",
       "title": "Optimizing Moving Target Selection in VR by Integrating Proximity-Based Feedback Types and Modalities",
       "doi": "10.1109/VR59515.2025.00030",
-      "scholar_id": null,
+      "scholar_id": "DXJTi30AAAAJ:4DMP91E08xMC",
       "aliases": []
     },
     {
       "id": "paper-d5fab6be46a9",
       "title": "Exploring and Modeling Gaze-Based Steering Behavior in Virtual Reality",
       "doi": "10.1145/3706599.3720273",
-      "scholar_id": null,
+      "scholar_id": "DXJTi30AAAAJ:hFOr9nPyWt4C",
       "aliases": []
     },
     {
       "id": "paper-adacecc23c15",
       "title": "Evaluating and Modeling the Effect of Frame Rate on Steering Performance in Virtual Reality",
       "doi": "10.1109/TVCG.2024.3451491",
-      "scholar_id": null,
+      "scholar_id": "DXJTi30AAAAJ:QIV2ME_5wuYC",
       "aliases": []
     },
     {
       "id": "paper-f9338b99447e",
       "title": "Exploring and Modeling Directional Effects on Steering Behavior in Virtual Reality",
       "doi": "10.1109/TVCG.2024.3456166",
-      "scholar_id": null,
+      "scholar_id": "DXJTi30AAAAJ:IWHjjKOFINEC",
       "aliases": []
     },
     {
       "id": "paper-0690a9565004",
       "title": "Design and Evaluation of Controller-based Raycasting Methods for Efficient Alphanumeric and Special Character Entry in Virtual Reality",
       "doi": "10.1109/TVCG.2024.3349428",
-      "scholar_id": null,
+      "scholar_id": "DXJTi30AAAAJ:dhFuZR0502QC",
       "aliases": []
     },
     {
       "id": "paper-1cb8325e9923",
       "title": "Omnidirectional Virtual Visual Acuity: A User-Centric Visual Clarity Metric for Virtual Reality Head-Mounted Displays and Environments",
       "doi": "10.1109/TVCG.2024.3372127",
-      "scholar_id": null,
+      "scholar_id": "DXJTi30AAAAJ:hC7cP41nSMkC",
       "aliases": []
     },
     {
       "id": "paper-6df0a98068a5",
       "title": "Experimental Analysis of Freehand Multi-object Selection Techniques in Virtual Reality Head-Mounted Displays",
       "doi": "10.1145/3698129",
-      "scholar_id": null,
-      "aliases": []
+      "scholar_id": "DXJTi30AAAAJ:ZeXyd9-uunAC",
+      "aliases": [
+        "Experimental Analysis of Freehand Multi-object Selection Techniques in Virtual Reality Head-Mounted Displays 🏆"
+      ]
     },
     {
       "id": "paper-f8f33d922a04",
       "title": "OnArmQWERTY: An Empirical Evaluation of On-Arm Tap Typing for AR HMDs",
       "doi": "10.1145/3677386.3682084",
-      "scholar_id": null,
+      "scholar_id": "DXJTi30AAAAJ:mVmsd5A6BfQC",
       "aliases": []
     },
     {
       "id": "paper-7a0731abc163",
       "title": "Exploring the Effects of Spatial Constraints and Curvature for 3D Piloting in Virtual Environments",
       "doi": "10.1109/ISMAR62088.2024.00065",
-      "scholar_id": null,
+      "scholar_id": "DXJTi30AAAAJ:Wp0gIr-vW9MC",
       "aliases": []
     },
     {
       "id": "paper-60a5d70c6e91",
       "title": "Exploring Gaze-assisted and Hand-based Region Selection in Augmented Reality",
       "doi": "10.1145/3591129",
-      "scholar_id": null,
+      "scholar_id": "DXJTi30AAAAJ:9ZlFYXVOiuMC",
       "aliases": []
     },
     {
       "id": "paper-2a001a191a67",
       "title": "Predicting Gaze-based Target Selection in Augmented Reality Headsets Based on Eye and Head Endpoint Distributions",
       "doi": "10.1145/3544548.3581042",
-      "scholar_id": null,
+      "scholar_id": "DXJTi30AAAAJ:qUcmZB5y_30C",
       "aliases": []
     },
     {
       "id": "paper-ca08aa680fea",
       "title": "Expanding Targets in Virtual Reality Environments: A Fitts’ Law Study",
       "doi": "10.1109/ISMAR-Adjunct60411.2023.00132",
-      "scholar_id": null,
+      "scholar_id": "DXJTi30AAAAJ:-f6ydRqryjwC",
       "aliases": []
     }
   ]
