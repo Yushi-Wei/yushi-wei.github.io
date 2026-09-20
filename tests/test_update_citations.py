@@ -81,6 +81,21 @@ class MatchingTests(unittest.TestCase):
         current = snapshot_for(["Title", "Other"], [article("Title", 6), missing], previous)
         self.assertEqual(current["papers"]["paper-1"], previous["papers"]["paper-1"])
 
+    def test_null_or_blank_count_retains_old_value_without_inventing_zero(self):
+        previous = snapshot_for(["Title", "Other"], [article("Title"), article("Other", 7, "two")], now=OLD)
+        for value in (None, "", "  "):
+            with self.subTest(value=value):
+                current = snapshot_for(["Title", "Other"], [article("Title", 6), article("Other", value, "two")], previous)
+                self.assertEqual(current["papers"]["paper-1"], previous["papers"]["paper-1"])
+                first = snapshot_for(["Title", "Other"], [article("Title", 6), article("Other", value, "two")])
+                self.assertNotIn("paper-1", first["papers"])
+
+    def test_literal_integer_strings_are_counts(self):
+        for value, expected in (("0", 0), ("5", 5), (" 12 ", 12), ("1,234", 1234), ("12,345,678", 12345678)):
+            with self.subTest(value=value):
+                current = snapshot_for(["Title"], [article("Title", value)])
+                self.assertEqual(current["papers"]["paper-0"]["citations"], expected)
+
     def test_verified_identity_survives_title_edit(self):
         previous = snapshot_for(["Title"], [article("Title")], now=OLD)
         current = snapshot_for(["Title"], [article("Corrected title", 8)], previous)
@@ -116,9 +131,17 @@ class MatchingTests(unittest.TestCase):
 
 class ValidationTests(unittest.TestCase):
     def test_invalid_article_counts_fail(self):
-        for value in (True, False, -1, 1.0, "5", None):
+        for value in (True, False, -1, 1.0, "-1", "1.0", "1k", "1,23", "01,234", "NaN", "5 citations", [], {}):
             with self.subTest(value=value), self.assertRaises(sync.UpdateError):
                 sync.collect_pages(AUTHOR, None, [page([article("Title", value)])])
+
+    def test_invalid_count_diagnostic_omits_raw_value(self):
+        with self.assertRaises(sync.UpdateError) as raised:
+            sync.collect_pages(AUTHOR, None, [page([article("Title", "PRIVATE-RAW-VALUE")])])
+        message = str(raised.exception)
+        self.assertIn("type=str", message)
+        self.assertIn(f"scholar_id={AUTHOR}:one", message)
+        self.assertNotIn("PRIVATE-RAW-VALUE", message)
 
     def test_invalid_profile_counts_fail(self):
         for value in (True, -1, 1.5, "50", None):

@@ -45,6 +45,20 @@ def count(value, field):
     return value
 
 
+def article_count(value, identity):
+    # The provider can represent an absent count as null or a blank string.
+    # Neither is evidence of zero; retain the previous count when available.
+    if value is None:
+        return None
+    if isinstance(value, str):
+        literal = value.strip()
+        if not literal:
+            return None
+        if re.fullmatch(r"(?:[0-9]+|[1-9][0-9]{0,2}(?:,[0-9]{3})+)", literal):
+            return int(literal.replace(",", ""))
+    return count(value, f"article citations (type={type(value).__name__}, scholar_id={identity})")
+
+
 def normalize_title(value):
     require(isinstance(value, str) and value.strip(), "Missing or invalid article title.")
     text = unicodedata.normalize("NFKC", value).casefold()
@@ -183,7 +197,7 @@ def parse_page(payload, author, offset):
         cited = article.get("cited_by", {})
         require(isinstance(cited, dict), "Invalid article citation details.")
         # Absence means unknown, including zero-citation articles omitted by the provider.
-        value = count(cited["value"], "article citations") if "value" in cited else None
+        value = article_count(cited.get("value"), identity)
         parsed.append({"title": title, "scholar_id": identity, "citations": value})
     return parsed, profile_total(payload, required=(offset == 0)), next_offset(payload, author, offset, len(parsed))
 
