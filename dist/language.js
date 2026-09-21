@@ -55,13 +55,13 @@
     rich('#research-heading', '<span class="zh-title-overline">探索 XR 中的</span><em>感知与交互</em>');
     rich('.research-summary', '<span class="zh-paragraph">扩展现实（XR）为人们理解信息、表达想法，以及在物理与数字世界中行动开辟了新的可能。其关键在于从人的感知与行为出发，设计能够回应不同能力与意图的交互方式。</span><span class="zh-paragraph">研究结合实证研究、交互设计与交互表现的计算建模，探索 XR 系统的基础原理与设计方法，致力于拓展人的能力，让沉浸式环境成为学习、创造与协作的新媒介。</span>');
     text('#record-heading', '发表概况');
-    rich('.record-lead', '已发表或接收论文 <strong>23 篇</strong>，其中<strong>第一作者 9 篇</strong>。<span class="zh-record-detail">一作论文包括 TVCG 7 篇、IJHCI 1 篇、CHI 1 篇。</span>');
+    rich('.record-lead', '已发表或接收论文 <strong>24 篇</strong>，其中<strong>第一作者 9 篇</strong>。<span class="zh-record-detail">一作论文包括 TVCG 7 篇、IJHCI 1 篇、CHI 1 篇。</span>');
     text('.record-stats > div:nth-child(1) dt', '期刊论文');
     rich('.record-stats > div:nth-child(1) dd span', '<span class="zh-stat-line">一作 8 篇</span><span class="zh-stat-line">待刊 2 篇</span>');
     text('.record-stats > div:nth-child(2) dt', '会议论文');
     text('.record-stats > div:nth-child(2) dd span', '一作 1 篇');
     text('.record-stats > div:nth-child(3) dt', '海报论文');
-    text('.record-stats > div:nth-child(3) dd span', '合作发表');
+    rich('.record-stats > div:nth-child(3) dd span', '<span class="zh-stat-line">合作发表</span><span class="zh-stat-line">待刊 1 篇</span>');
     text('#journal-route-heading', '会议期刊论文');
     rich('.journal-route-lead', '<strong>10 篇论文</strong>，其中<strong>一作 3 篇</strong>。');
     text('.journal-route-explanation', '优秀会议论文可经同行评审推荐至相关期刊发表。');
@@ -70,7 +70,7 @@
     text('.record-venues p:nth-child(3) strong', '海报');
     rich('.record-classifications[data-classification="ccf"]', '<a href="https://www.ccf.org.cn/Academic_Evaluation/By_category/" target="_blank" rel="noopener noreferrer">CCF 2026</a>：期刊或会议论文共 <strong>16 篇 A 类 · 2 篇 B 类 · 2 篇 C 类</strong>；第一作者论文为 <strong>8 篇 A 类 · 1 篇 B 类</strong>。');
     rich('.record-classifications[data-classification="jcr"]', '<a href="#classification-notes">JCR 2026 发布版</a>：<strong>16 篇 Q1 期刊论文 · 其中 8 篇第一作者</strong>。');
-    text('.record-note', '21 项已发表成果 · 2 篇已接收待刊的期刊论文。');
+    text('.record-note', '21 项已发表成果 · 3 篇已接收待刊论文。');
     attr('.research-quicklinks', 'aria-label', '页内导航');
     rich('.research-quicklinks a', '查看论文 <span aria-hidden="true">↓</span>');
     text('#themes-heading', '研究方向');
