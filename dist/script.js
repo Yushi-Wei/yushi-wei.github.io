@@ -134,14 +134,14 @@
   const count = document.querySelector('#publication-count');
   if (!filter || !list || !count) return;
   const groups = [...list.querySelectorAll('.publication-group')];
-  // First-author papers lead each year; keep the order within both sets stable.
+  // Posters close each year; first-author papers lead within each category.
+  const publicationPriority = paper =>
+    (paper.querySelector('.publication-type[data-type="poster"]') ? 2 : 0) +
+    (paper.dataset.firstAuthor === 'true' ? 0 : 1);
   groups.forEach(group => {
     const container = group.querySelector('.year-papers');
     const entries = [...container.querySelectorAll('.publication')];
-    const ordered = [
-      ...entries.filter(paper => paper.dataset.firstAuthor === 'true'),
-      ...entries.filter(paper => paper.dataset.firstAuthor !== 'true')
-    ];
+    const ordered = [...entries].sort((a, b) => publicationPriority(a) - publicationPriority(b));
     if (ordered.some((paper, index) => paper !== entries[index])) container.append(...ordered);
   });
   const papers = [...list.querySelectorAll('.publication')];
