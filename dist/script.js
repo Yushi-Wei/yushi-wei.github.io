@@ -134,6 +134,16 @@
   const count = document.querySelector('#publication-count');
   if (!filter || !list || !count) return;
   const groups = [...list.querySelectorAll('.publication-group')];
+  // First-author papers lead each year; keep the order within both sets stable.
+  groups.forEach(group => {
+    const container = group.querySelector('.year-papers');
+    const entries = [...container.querySelectorAll('.publication')];
+    const ordered = [
+      ...entries.filter(paper => paper.dataset.firstAuthor === 'true'),
+      ...entries.filter(paper => paper.dataset.firstAuthor !== 'true')
+    ];
+    if (ordered.some((paper, index) => paper !== entries[index])) container.append(...ordered);
+  });
   const papers = [...list.querySelectorAll('.publication')];
   const themeButtons = [...document.querySelectorAll('[data-theme]')];
   const cards = themeButtons.filter(button => button.dataset.theme !== 'all');
