@@ -136,7 +136,7 @@
     text('.service-block:nth-of-type(2) .date', '科研指导');
     text('.service-block:nth-of-type(2) p', '指导学生开展 XR 交互、感知与交互表现研究。');
     text('.service-block:nth-of-type(3) .date', '学术审稿');
-    text('.service-block:nth-of-type(3) p', 'ACM CHI · IEEE VR · IEEE ISMAR · IEEE TVCG · IJHCI 等。');
+    text('.service-block:nth-of-type(3) p', 'ACM CHI · IEEE VR · IEEE ISMAR · IEEE TVCG · IJHCI · Virtual Reality (Springer) 等。');
   }
 
   if (isLife) {
