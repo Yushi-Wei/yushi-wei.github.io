@@ -64,7 +64,7 @@
     rich('.record-stats > div:nth-child(3) dd span', '<span class="zh-stat-line">合作发表</span><span class="zh-stat-line">待刊 1 篇</span>');
     text('#journal-route-heading', '会议期刊论文');
     rich('.journal-route-lead', '<strong>10 篇论文</strong>，其中<strong>一作 3 篇</strong>。');
-    text('.journal-route-explanation', '优秀会议论文可经同行评审推荐至相关期刊发表。');
+    text('.journal-route-explanation', '优秀会议投稿可通过期刊轨道评审或推荐机制，发表于相关期刊。');
     text('.record-venues p:nth-child(1) strong', '期刊');
     text('.record-venues p:nth-child(2) strong', '会议');
     text('.record-venues p:nth-child(3) strong', '海报');
