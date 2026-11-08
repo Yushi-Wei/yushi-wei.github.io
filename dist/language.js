@@ -32,9 +32,6 @@
     text('.hero-topline .edition', '人机交互 · 扩展现实');
     rich('#name', '<span class="name-zh">魏雨石</span><span class="name-latin" lang="en">Yushi Wei</span>');
     text('.profile-role', '计算媒体与艺术 · 博士候选人（最后一年）');
-    attr('.faculty-notice', 'aria-label', '教职求职信息');
-    text('.faculty-notice strong', '正在寻找教职机会');
-    rich('.faculty-notice a', '欢迎联系 <span aria-hidden="true">↗</span>');
     rich('.profile-bio', '<span class="zh-paragraph">魏雨石现为香港科技大学（广州）计算媒体与艺术博士候选人，处于博士学习的最后一年，导师为 <a href="https://cma.hkust-gz.edu.cn/faculty-regular/hai-ning-liang/" target="_blank" rel="noopener noreferrer" lang="en">Hai-Ning Liang</a> 和 <a href="https://cma.hkust-gz.edu.cn/faculty-regular/pan-hui-3/" target="_blank" rel="noopener noreferrer" lang="en">Pan Hui</a>。</span><span class="zh-paragraph">研究聚焦扩展现实（XR）中的人类感知与空间交互，探索如何拓展人在物理与数字世界中的感知、表达与行动能力。</span>');
     rich('.profile-actions a[href="/research/"]', '研究与论文 <span aria-hidden="true">↗</span>');
     rich('.profile-actions a[href*="scholar.google.com"]', '谷歌学术 <span aria-hidden="true">↗</span>');
@@ -161,7 +158,7 @@
   const description = document.querySelector('meta[name="description"]');
   const englishDescription = description?.content;
   const chineseTitle = isHome ? '首页 — 魏雨石 Yushi Wei' : isResearch ? '研究与论文 — 魏雨石 Yushi Wei' : isLife ? '生活 — 魏雨石 Yushi Wei' : '学术工作 — 魏雨石 Yushi Wei';
-  const chineseDescription = isHome ? '魏雨石，香港科技大学（广州）计算媒体与艺术博士候选人，现处于博士学习的最后一年，研究人机交互与扩展现实（XR），正在寻找教职机会。' : isResearch ? '魏雨石关于 XR 空间交互、感知与交互表现的研究和论文，可按研究方向及第一作者筛选。' : isLife ? '魏雨石的生活影像：光影、小动物、家人与相伴的日常。' : '魏雨石的科研项目、专利、学术荣誉与教学服务。';
+  const chineseDescription = isHome ? '魏雨石，香港科技大学（广州）计算媒体与艺术博士候选人，现处于博士学习的最后一年，研究人机交互与扩展现实（XR）。' : isResearch ? '魏雨石关于 XR 空间交互、感知与交互表现的研究和论文，可按研究方向及第一作者筛选。' : isLife ? '魏雨石的生活影像：光影、小动物、家人与相伴的日常。' : '魏雨石的科研项目、专利、学术荣誉与教学服务。';
   const applyLanguage = (language, persist = false) => {
     const chinese = language === 'zh-CN';
     root.lang = chinese ? 'zh-CN' : 'en';
